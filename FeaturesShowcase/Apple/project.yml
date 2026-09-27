@@ -1,0 +1,96 @@
+name: FeaturesShowcase
+
+options:
+  createIntermediateGroups: true
+  projectFormat: xcode16_0
+  xcodeVersion: "26.6"
+
+settings:
+  base:
+    ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: YES
+    DEAD_CODE_STRIPPING: YES
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    STRING_CATALOG_GENERATE_SYMBOLS: YES
+
+packages:
+  ConcordUI:
+    url: https://github.com/Zodiac-Innovations/ConcordUI.git
+    branch: main
+
+targets:
+  FeaturesShowcase:
+    type: application
+    supportedDestinations: [iOS, macOS]
+    deploymentTarget:
+      iOS: "13.0"
+      macOS: "13.0"
+    sources:
+      - path: App
+      - path: ../Shared/Swift
+        type: syncedFolder
+      - path: ../Shared/Files
+        type: syncedFolder
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: "Features Showcase"
+        CFBundleExecutable: $(EXECUTABLE_NAME)
+        CFBundleIdentifier: $(PRODUCT_BUNDLE_IDENTIFIER)
+        CFBundleInfoDictionaryVersion: "6.0"
+        CFBundleName: $(PRODUCT_NAME)
+        CFBundlePackageType: APPL
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSHumanReadableCopyright: "© 2026 Zodiac Innovations. All rights reserved."
+    dependencies:
+      - package: ConcordUI
+        product: ConcordUI
+      - package: ConcordUI
+        product: ConcordUIApple
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.zodiacinnovations.featuresshowcase
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        DEAD_CODE_STRIPPING: YES
+        SWIFT_VERSION: "6.0"
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+    scheme:
+      testTargets:
+        - FeaturesShowcaseTests
+        - FeaturesShowcaseUITests
+
+  FeaturesShowcaseTests:
+    type: bundle.unit-test
+    supportedDestinations: [iOS, macOS]
+    deploymentTarget:
+      iOS: "13.0"
+      macOS: "13.0"
+    sources:
+      - path: Tests
+    dependencies:
+      - target: FeaturesShowcase
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.zodiacinnovations.featuresshowcase.tests
+        DEAD_CODE_STRIPPING: YES
+        SWIFT_VERSION: "6.0"
+        GENERATE_INFOPLIST_FILE: YES
+
+  FeaturesShowcaseUITests:
+    type: bundle.ui-testing
+    supportedDestinations: [iOS, macOS]
+    deploymentTarget:
+      iOS: "13.0"
+      macOS: "13.0"
+    sources:
+      - path: UITests
+    dependencies:
+      - target: FeaturesShowcase
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.zodiacinnovations.featuresshowcase.uitests
+        DEAD_CODE_STRIPPING: YES
+        SWIFT_VERSION: "6.0"
+        GENERATE_INFOPLIST_FILE: YES

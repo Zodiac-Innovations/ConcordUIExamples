@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Hello ConcordUI</string>
+    <string name="app_copyright" formatted="false">© 2026 Zodiac Innovations. All rights reserved.</string>
+</resources>
