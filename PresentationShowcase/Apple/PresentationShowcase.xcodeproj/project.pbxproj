@@ -34,7 +34,7 @@
 
 /* Begin PBXFileReference section */
 		23B4388D0D3DDB50A167BDEE /* PresentationShowcaseTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PresentationShowcaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		362A0F820B9399DDB356D62C /* PresentationShowcase.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PresentationShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		362A0F820B9399DDB356D62C /* PresentationShowcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PresentationShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D08AE7BAF6B56333FC7CAE5 /* PresentationShowcaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationShowcaseUITests.swift; sourceTree = "<group>"; };
 		75E0505F2D08F8D5C8FAE67F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8ECD85FA2A50453F78EB3661 /* PresentationShowcaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationShowcaseApp.swift; sourceTree = "<group>"; };
@@ -46,21 +46,11 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2F3377D5EB0450CA16FF3910 /* Swift */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
-			name = Swift;
 			path = Swift;
 			sourceTree = "<group>";
 		};
 		E93308AB1E7E06DCDD95FDCD /* Files */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
-			name = Files;
 			path = Files;
 			sourceTree = "<group>";
 		};
@@ -178,8 +168,8 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				E93308AB1E7E06DCDD95FDCD /* Files */,
 				2F3377D5EB0450CA16FF3910 /* Swift */,
+				E93308AB1E7E06DCDD95FDCD /* Files */,
 			);
 			name = PresentationShowcase;
 			packageProductDependencies = (
@@ -352,6 +342,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -489,6 +480,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
