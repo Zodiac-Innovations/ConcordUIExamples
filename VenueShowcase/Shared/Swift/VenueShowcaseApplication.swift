@@ -27,42 +27,18 @@ nonisolated public final class VenueShowcaseApplication: ConcordApplication {
                     ConcordText("Kind: Main")
                         .centerJustified(),
 
-                    ConcordButton("Create Tools Venue") {
-                        _ = self.prepareToolsVenue()
-                    }
-                    .centerJustified(),
-
-                    ConcordButton("Find Tools Venue") {
-                        let message = self.secondaryVenue(id: Self.toolsVenueID) == nil
-                            ? "Tools Venue not found"
-                            : "Tools Venue found"
-                        _ = self.platform.banner(message)
-                    }
-                    .centerJustified(),
-
-                    ConcordButton("Display Tools Presentation") {
+                    ConcordButton("Open Tools Venue") {
                         let venue = self.prepareToolsVenue()
                         _ = venue.displayPresentation(tag: Self.toolsPrimaryTag)
                     }
                     .centerJustified(),
 
-                    ConcordButton("Display Alternate Tools Presentation") {
-                        let venue = self.prepareToolsVenue()
-                        _ = venue.displayPresentation(tag: Self.toolsAlternateTag)
-                    }
-                    .centerJustified(),
-
-                    ConcordButton("Remove Tools Venue") {
-                        self.removeSecondaryVenue(id: Self.toolsVenueID)
-                    }
-                    .centerJustified(),
-
-                    ConcordButton("Show Dialog from Main Venue") {
+                    ConcordButton("Show Dialog") {
                         self.showModal(.dialog, attachedTo: self.mainVenue)
                     }
                     .centerJustified(),
 
-                    ConcordButton("Show Sheet from Main Venue") {
+                    ConcordButton("Show Sheet") {
                         self.showModal(.sheet, attachedTo: self.mainVenue)
                     }
                     .centerJustified(),
@@ -98,17 +74,23 @@ nonisolated public final class VenueShowcaseApplication: ConcordApplication {
                         .centerJustified(),
                     ConcordText("ID: \(venue.id)")
                         .centerJustified(),
-                    ConcordText("Presentation One")
+                    ConcordText("Tools — Presentation One")
                         .centerJustified(),
-                    ConcordButton("Show Attached Dialog") {
+                    ConcordText("Use this venue to open an attached dialog or sheet.")
+                        .centerJustified(),
+                    ConcordButton("Switch Presentation") {
+                        _ = venue.displayPresentation(tag: Self.toolsAlternateTag)
+                    }
+                    .centerJustified(),
+                    ConcordButton("Show Dialog") {
                         self.showModal(.dialog, attachedTo: venue)
                     }
                     .centerJustified(),
-                    ConcordButton("Show Attached Sheet") {
+                    ConcordButton("Show Sheet") {
                         self.showModal(.sheet, attachedTo: venue)
                     }
                     .centerJustified(),
-                    ConcordButton("Remove Venue and Return") {
+                    ConcordButton("Close Tools Venue") {
                         self.removeSecondaryVenue(id: Self.toolsVenueID)
                     }
                     .centerJustified(),
@@ -124,17 +106,23 @@ nonisolated public final class VenueShowcaseApplication: ConcordApplication {
                         .centerJustified(),
                     ConcordText("ID: \(venue.id)")
                         .centerJustified(),
-                    ConcordText("Presentation Two")
+                    ConcordText("Overview — Presentation Two")
                         .centerJustified(),
-                    ConcordButton("Show Attached Dialog") {
+                    ConcordText("Different content, same secondary venue.")
+                        .centerJustified(),
+                    ConcordButton("Switch Presentation") {
+                        _ = venue.displayPresentation(tag: Self.toolsPrimaryTag)
+                    }
+                    .centerJustified(),
+                    ConcordButton("Show Dialog") {
                         self.showModal(.dialog, attachedTo: venue)
                     }
                     .centerJustified(),
-                    ConcordButton("Show Attached Sheet") {
+                    ConcordButton("Show Sheet") {
                         self.showModal(.sheet, attachedTo: venue)
                     }
                     .centerJustified(),
-                    ConcordButton("Remove Venue and Return") {
+                    ConcordButton("Close Tools Venue") {
                         self.removeSecondaryVenue(id: Self.toolsVenueID)
                     }
                     .centerJustified(),
@@ -169,7 +157,7 @@ nonisolated public final class VenueShowcaseApplication: ConcordApplication {
                     .centerJustified(),
                     ConcordText("On mobile this appears as a modal screen.")
                         .centerJustified(),
-                    ConcordButton("Dismiss Modal") {
+                    ConcordButton("Dismiss") {
                         modal.dismiss()
                     }
                     .centerJustified(),
