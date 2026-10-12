@@ -36,7 +36,7 @@
 		07D609FBF21BAB3A6FA52180 /* VenueShowcaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueShowcaseApp.swift; sourceTree = "<group>"; };
 		29CC3C389D1524D51737F080 /* VenueShowcaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueShowcaseUITests.swift; sourceTree = "<group>"; };
 		51FD766113335B6F42EC317E /* VenueShowcaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueShowcaseTests.swift; sourceTree = "<group>"; };
-		A9B25E4872622D6523BFA0CD /* VenueShowcase.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = VenueShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9B25E4872622D6523BFA0CD /* VenueShowcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenueShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8C4CC983AC30AE650DBC49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C270BF2377CB314666598498 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E11DDAEEF24310B363D4ADBD /* VenueShowcaseUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VenueShowcaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,21 +46,11 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		305C2F3071A378A5B91975AA /* Files */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
-			name = Files;
 			path = Files;
 			sourceTree = "<group>";
 		};
 		C02A29E8969351E8703AA4A0 /* Swift */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
-			name = Swift;
 			path = Swift;
 			sourceTree = "<group>";
 		};
@@ -372,6 +362,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 44Q9LHQ5T3;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -502,6 +493,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 44Q9LHQ5T3;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
