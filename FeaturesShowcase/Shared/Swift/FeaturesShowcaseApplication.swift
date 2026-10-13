@@ -3,10 +3,23 @@
 //  FeaturesShowcase
 //
 
+//  Purpose: Demonstrate reusable application features and standard launch behavior.
+//  Screens: Home offers About, Welcome, Get Started, What's New, FAQ, Help, and
+//  Settings as text and icon buttons. Welcome uses preview images; Get Started and
+//  What's New use summaries and links; About provides application and legal
+//  information; FAQ groups expandable questions; Help describes the features.
+//  Controls: Feature buttons open their configured presentations. All Help and
+//  All Settings collect related actions, and Links offers Apple and Google Play
+//  website actions. Settings includes Reset Start and Reset Version; restart after
+//  using either to observe first-launch or new-version behavior. Standard startup
+//  selects the appropriate initial feature before showing Home.
+
 import ConcordUI
 
+/// Configures standard features, custom actions, and the feature navigation screen.
 nonisolated public final class FeaturesShowcaseApplication: ConcordApplication {
 
+    /// Configures features and actions, registers Home, and performs standard startup.
     public override func startApplication() {
 
         mainVenue

@@ -7,23 +7,39 @@
 //  Shared application code for demonstrating ConcordUI Platform features.
 //
 
+//  Purpose: Exercise native services through the shared ConcordPlatform interface.
+//  Screens: Home opens Information, Function, Audio & Speech, Storage, Embedded
+//  Data, and Elements. Sections cover app/device/locale metadata, supported native
+//  actions, sound and speech, permanent and encrypted storage, bundled resources,
+//  and native date and button controls.
+//  Controls: Function buttons open websites, compose messages or email, dial,
+//  use maps, open settings, or print when supported. Audio and speech buttons
+//  compare playback sources and speeds; Cancel stops the active operation and
+//  status labels report completion. Storage buttons store, read, and remove sample
+//  strings; Reset Start and Reset Version affect launch tracking. Embedded Data
+//  buttons open, retrieve, share, and print resources. Home returns to the menu.
+
 import Foundation
 import ConcordUI
 
+/// Keeps playback status text and the corresponding Cancel button in sync.
 private final class PlaybackStatusUI: @unchecked Sendable {
     let label: ConcordLabel
     let cancelButton: ConcordButton
 
+    /// Retains the status label and Cancel button for one playback operation.
     init(label: ConcordLabel, cancelButton: ConcordButton) {
         self.label = label
         self.cancelButton = cancelButton
     }
 
+    /// Updates the status label and enables Cancel only while playback is active.
     func set(_ status: String, playing: Bool) {
         label.text = "Status: \(status)"
         cancelButton.isEnabled = playing
     }
 
+    /// Displays the final playback result and disables the Cancel button.
     func set(_ result: ConcordPlaybackResult) {
         switch result {
         case .finished:
@@ -36,6 +52,7 @@ private final class PlaybackStatusUI: @unchecked Sendable {
     }
 }
 
+/// Builds interactive demonstrations of the current platform's native services.
 nonisolated public final class PlatformShowcaseApplication: ConcordApplication {
     private var homePresentation: ConcordPresentation?
     private var informationPresentation: ConcordPresentation?
@@ -51,10 +68,12 @@ nonisolated public final class PlatformShowcaseApplication: ConcordApplication {
     private let persistentStorageDemoKey = "PlatformShowcase-PermanentStorage"
     private let secureStorageDemoKey = "PlatformShowcase-SecureStorage"
 
+    /// Initializes the application with the native platform and showcase theme.
     public init(platform: any ConcordPlatform) {
         super.init(platform: platform, theme: ConcordTheme(frameColor: .secondary))
     }
 
+    /// Creates a Home button that returns to the main menu presentation.
     private func makeHome() -> ConcordButton {
         ConcordButton("Home") {
             guard let homePresentation = self.homePresentation else { return }
@@ -63,6 +82,7 @@ nonisolated public final class PlatformShowcaseApplication: ConcordApplication {
         .centerJustified()
     }
 
+    /// Creates a menu button that displays the supplied platform example.
     private func platformButton(_ text: String, _ presentation: ConcordPresentation?) -> ConcordButton {
         ConcordButton(text) {
             guard let presentation else { return }
@@ -71,11 +91,13 @@ nonisolated public final class PlatformShowcaseApplication: ConcordApplication {
         .centerJustified()
     }
 
+    /// Redisplays the storage presentation to rebuild its operation result labels.
     private func refreshStorage() {
         guard let storagePresentation else { return }
         displayMainPresentation(storagePresentation)
     }
 
+    /// Builds capability-aware platform examples and displays their Home menu.
     public override func startApplication() {
         informationPresentation = ConcordPresentation {
             ConcordVStack([

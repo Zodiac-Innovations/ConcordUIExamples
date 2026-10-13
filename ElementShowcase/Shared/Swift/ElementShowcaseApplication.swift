@@ -5,6 +5,17 @@
 //  Created by Steve Sheets on 8/16/26.
 //
 
+//  Purpose: Demonstrate ConcordUI element families, styling, actions, and bindings.
+//  Screens: Home opens Stacks, Platform Specific UI, Labels, Buttons, Text,
+//  Booleans, Numerics, Date & Time, Selections, Images & Icons, Raster & Overlapping
+//  Images, and Others. Sections compare layout and label styles, input flavors,
+//  selection controls, image placement, progress indicators, and expanders.
+//  Controls: Home buttons return to the menu. The Buttons screen reports local
+//  closures, presentation-level action bubbling, and titled actions in a result
+//  label; its disabled button illustrates unavailable actions. Input screens let
+//  you edit values and compare change callbacks with shared bindings. Expanders
+//  reveal child content. Some layout buttons are visual examples with empty actions.
+
 import Foundation
 import ConcordUI
 
@@ -43,6 +54,7 @@ nonisolated public final class ElementShowcaseApplication: ConcordApplication {
 
     // MARK: - Initialization
 
+    /// Initializes the application with the native platform and showcase theme.
     public init(platform: any ConcordPlatform) {
         super.init(
             platform: platform,
@@ -184,28 +196,34 @@ nonisolated public final class ElementShowcaseApplication: ConcordApplication {
         result.text = text
     }
 
+    /// Formats an optional string for a result label, showing nil when absent.
     func optionalText(_ value: String?) -> String {
         value ?? "nil"
     }
 
+    /// Formats an optional Boolean as true, false, or nil for a result label.
     func boolText(_ value: Bool?) -> String {
         value.map { $0 ? "true" : "false" } ?? "nil"
     }
 
+    /// Formats an optional ConcordInt for a result label, showing nil when absent.
     func intText(_ value: ConcordInt?) -> String {
         value.map { String($0) } ?? "nil"
     }
 
+    /// Formats an optional ConcordFloat for a result label, showing nil when absent.
     func floatText(_ value: ConcordFloat?) -> String {
         value.map { String($0) } ?? "nil"
     }
 
+    /// Formats an optional selection index for a result label, showing nil when absent.
     func indexText(_ value: Int?) -> String {
         value.map { String($0) } ?? "nil"
     }
 
     // MARK: - Application
 
+    /// Builds all element-family presentations and displays their Home menu.
     public override func startApplication() {
 
         // MARK: Stack Examples

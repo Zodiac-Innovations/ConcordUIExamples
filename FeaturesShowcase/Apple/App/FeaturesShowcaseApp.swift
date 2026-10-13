@@ -9,11 +9,13 @@ import ConcordUI
 import ConcordUIApple
 import SwiftUI
 
+/// Connects the shared FeaturesShowcase application to its native Apple scene.
 @main
 struct FeaturesShowcaseApp: App {
     private let platform: ConcordApplePlatform
     private let application: FeaturesShowcaseApplication
 
+    /// Creates the Apple platform and shared application, then starts the sample.
     init() {
         let platform = ConcordApplePlatform()
         self.platform = platform

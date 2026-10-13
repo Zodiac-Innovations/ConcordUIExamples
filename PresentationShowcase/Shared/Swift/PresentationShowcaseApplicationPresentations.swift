@@ -6,13 +6,21 @@
 //  lifecycle, and hosting a Presentation in a Secondary Venue.
 //
 
+//  Purpose: Build the Presentation Showcase screens described in the application.
+//  Screens: Home links to metadata, editable data, display options, lifecycle, and
+//  secondary-venue examples. Each main example provides a Home button; the
+//  secondary venue provides Close Venue. The data screen binds its text editor to
+//  the application's reused data, and Lifecycle displays shared callback counts.
+
 import Foundation
 import ConcordUI
 
+/// Builds presentation examples and their navigation.
 nonisolated extension PresentationShowcaseApplication {
 
     private static var secondaryPresentationVenueID: String { "presentationshowcase.secondary" }
 
+    /// Builds the menu for the presentation examples and secondary venue.
     func homePresentation() -> ConcordPresentation {
         ConcordPresentation(name: "Presentation Showcase Home") {
             ConcordVStack([
@@ -103,6 +111,7 @@ nonisolated extension PresentationShowcaseApplication {
         return venue
     }
 
+    /// Builds the metadata and element-tree explanation with Home navigation.
     func basicPresentation() -> ConcordPresentation {
         ConcordPresentation(
             tag: 101,
@@ -141,6 +150,7 @@ nonisolated extension PresentationShowcaseApplication {
         }
     }
 
+    /// Builds an editable presentation using the application's reused string data.
     func dataPresentation() -> ConcordPresentation {
         let data = sharedPresentationData
 
@@ -167,6 +177,7 @@ nonisolated extension PresentationShowcaseApplication {
         }
     }
 
+    /// Builds an example of presentation font defaults and element-level overrides.
     func displayOptionsPresentation() -> ConcordPresentation {
         ConcordPresentation(
             name: "Display Options",
@@ -198,6 +209,7 @@ nonisolated extension PresentationShowcaseApplication {
         }
     }
 
+    /// Builds a presentation that counts lifecycle callbacks using shared state.
     func lifecyclePresentation() -> ConcordPresentation {
         PresentationShowcaseLifecyclePresentation(state: lifecycleState) {
             ConcordVStack([

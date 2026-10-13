@@ -3,17 +3,30 @@
 //  VenueShowcase
 //
 
+//  Purpose: Demonstrate main, secondary, and attached modal ConcordUI venues.
+//  Screens: The main venue shows its identity and opens the Tools secondary venue.
+//  Tools has two registered presentations, Tools and Overview, sharing one venue.
+//  Dialog and sheet examples display their owning venue's identity and modal flavor.
+//  Controls: Open Tools Venue displays its first presentation. Switch Presentation
+//  alternates the two Tools presentations. Show Dialog and Show Sheet create a
+//  modal attached to the venue containing the button; Dismiss closes that modal.
+//  Close Tools Venue removes the secondary venue. Desktop uses separate windows
+//  and modal flavors; mobile uses secondary navigation and modal screens.
+
 import ConcordUI
 
+/// Manages the main, Tools, and attached modal venue demonstrations.
 nonisolated public final class VenueShowcaseApplication: ConcordApplication {
     private static let toolsVenueID = "venueshowcase.tools"
     private static let toolsPrimaryTag = 101
     private static let toolsAlternateTag = 102
 
+    /// Displays the main venue and its secondary-venue and modal controls.
     public override func startApplication() {
         showMainVenue()
     }
 
+    /// Displays the main venue identity and buttons for secondary and modal venues.
     private func showMainVenue() {
         mainVenue.displayPresentation(
             ConcordPresentation {
@@ -134,6 +147,7 @@ nonisolated public final class VenueShowcaseApplication: ConcordApplication {
         return venue
     }
 
+    /// Creates and displays an attached dialog or sheet with a Dismiss button.
     private func showModal(
         _ flavor: ConcordModalVenueFlavor,
         attachedTo owner: ConcordVenue
