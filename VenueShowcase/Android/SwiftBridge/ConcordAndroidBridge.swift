@@ -12,7 +12,7 @@ final class ConcordAndroidPlatform: ConcordPlatform, ConcordVenuePlatformLifecyc
     }
 
     func displayPresentation(_ presentation: ConcordPresentation, in venue: ConcordVenue) {
-        if venue.config.kind == .secondary,
+        if (venue.config.kind == .secondary || venue.config.kind == .modal),
            currentPresentation !== presentation,
            let previous = currentPresentation,
            previousPresentationsByVenueID[venue.id] == nil {
@@ -41,7 +41,7 @@ final class ConcordAndroidPlatform: ConcordPlatform, ConcordVenuePlatformLifecyc
         for venue: ConcordVenue,
         discardIfNotVisible: Bool
     ) {
-        guard venue.config.kind == .secondary else { return }
+        guard venue.config.kind == .secondary || venue.config.kind == .modal else { return }
 
         guard let venuePresentation = venue.currentPresentation,
               currentPresentation === venuePresentation else {
